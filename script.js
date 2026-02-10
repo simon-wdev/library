@@ -1,9 +1,10 @@
+const myLib = [];
 
-
-function Book (title, author, pages, read, about){
+function Book (id, title, author, pages, read, about){
     if (!new.target){
         throw Error("'new' Operator must be used.");
     }
+    this.id = id;
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -14,16 +15,14 @@ function Book (title, author, pages, read, about){
     };
     };
 
-const derHobbit = new Book("Der Hobbit", 
-                            "J.R.R Tolkien",
-                            555,
-                            false,
-                            "Hobbit macht Sachen."
-                        );
+function addToLib(title, author, pages, read, about){
+    id = crypto.randomUUID();
+    title = new Book(id, title, author, pages, read, about);
+    myLib.push(title);
+}
 
-
-console.log(derHobbit.title);
-console.log(derHobbit.info());
+addToLib("Roadside Picnic", "Strugatzki", 255, false, "Stalker doing Stalker things.");
+console.log(myLib);
 
 
 
