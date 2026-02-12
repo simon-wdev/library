@@ -1,4 +1,4 @@
-const myLib = [];
+let myLib = [];
 const bookWrapper = document.querySelector(".bookWrapper")
 
 function Book (id, title, author, pages, read, about){
@@ -22,10 +22,10 @@ function addToLib(title, author, pages, read, about){
     myLib.push(newBook);
 }
 
+addToLib("EINS", "Strugatzki", 255, false, "Stalker doing Stalker things.");
 addToLib("Roadside Picnic", "Strugatzki", 255, false, "Stalker doing Stalker things.");
-addToLib("Roadside Picnic", "Strugatzki", 255, false, "Stalker doing Stalker things.");
-addToLib("Roadside Picnic", "Strugatzki", 255, false, "Stalker doing Stalker things.");
-addToLib("Roadside Picnic", "Strugatzki", 255, false, "Stalker doing Stalker things.");
+addToLib("ZWEI", "Strugatzki", 255, false, "Stalker doing Stalker things.");
+addToLib("DREI", "Strugatzki", 255, false, "Stalker doing Stalker things.");
 
 console.log(myLib[0].info());
 
@@ -40,14 +40,24 @@ function showBooks(myLib){
                         <p>Autor: ${book.author}</p>
                         <p>Seitenzahl: ${book.pages}</p>
                         <p>Gelesen: ${book.read}</p>
-                        <p>Inhalt: ${book.about}
-                        <button class="remove-btn" onclick="removeBook('${book.id}')">Löschen</button>`
+                        <p>Inhalt: ${book.about}</p>
+                        <button class="remove-btn" data-id="${book.id}">Löschen</button>`
 
+        const removeBtn = card.querySelector(".remove-btn")
+        removeBtn.addEventListener("click", (e) => {
+            const btnID = e.target.dataset.id;
+            removeBook(btnID);
+        });
         
         bookWrapper.appendChild(card);
         card.classList.add("card");
                         
     });
+}
+
+function removeBook(deleteID){
+    myLib = myLib.filter(book => book.id !== deleteID);
+    showBooks(myLib);
 }
 
 showBooks(myLib);
