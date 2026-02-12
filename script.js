@@ -23,6 +23,10 @@ function addToLib(title, author, pages, read, about){
 }
 
 addToLib("Roadside Picnic", "Strugatzki", 255, false, "Stalker doing Stalker things.");
+addToLib("Roadside Picnic", "Strugatzki", 255, false, "Stalker doing Stalker things.");
+addToLib("Roadside Picnic", "Strugatzki", 255, false, "Stalker doing Stalker things.");
+addToLib("Roadside Picnic", "Strugatzki", 255, false, "Stalker doing Stalker things.");
+
 console.log(myLib[0].info());
 
 function showBooks(myLib){
@@ -36,9 +40,12 @@ function showBooks(myLib){
                         <p>Autor: ${book.author}</p>
                         <p>Seitenzahl: ${book.pages}</p>
                         <p>Gelesen: ${book.read}</p>
-                        <p>Inhalt: ${book.about}`
+                        <p>Inhalt: ${book.about}
+                        <button class="remove-btn" onclick="removeBook('${book.id}')">Löschen</button>`
 
+        
         bookWrapper.appendChild(card);
+        card.classList.add("card");
                         
     });
 }
