@@ -1,5 +1,8 @@
 let myLib = [];
 const bookWrapper = document.querySelector(".bookWrapper")
+const openModal = document.querySelector(".btnBook")
+const modal = document.getElementById("myModal")
+const closeBtn = document.querySelector(".closeBtn")
 
 function Book (id, title, author, pages, read, about){
     if (!new.target){
@@ -30,7 +33,7 @@ addToLib("DREI", "Strugatzki", 255, false, "Stalker doing Stalker things.");
 console.log(myLib[0].info());
 
 function showBooks(myLib){
-    bookWrapper.innerHTML = "";//vorsichtshalber, muss nicht sein
+    bookWrapper.innerHTML = "";//um doppelte Einträge direkt zu vermeiden
 
     myLib.forEach(book => {
         const card = document.createElement("div"); //erstellt das div in der die Buchkarte angezeigt wird
@@ -41,11 +44,11 @@ function showBooks(myLib){
                         <p>Seitenzahl: ${book.pages}</p>
                         <p>Gelesen: ${book.read}</p>
                         <p>Inhalt: ${book.about}</p>
-                        <button class="remove-btn" data-id="${book.id}">Löschen</button>`
+                        <button class="remove-btn" data-id="${book.id}">Löschen</button>` //data.id wird in javascript direkt in dataset gespeichert
 
         const removeBtn = card.querySelector(".remove-btn")
         removeBtn.addEventListener("click", (e) => {
-            const btnID = e.target.dataset.id;
+            const btnID = e.target.dataset.id; //dataset kann direkt abgerufen werden, e.target = Button auf den geklickt wurde
             removeBook(btnID);
         });
         
@@ -56,10 +59,17 @@ function showBooks(myLib){
 }
 
 function removeBook(deleteID){
-    myLib = myLib.filter(book => book.id !== deleteID);
+    myLib = myLib.filter(book => book.id !== deleteID); //Kopie von myLib, die deleteID wird herausgefiltert
     showBooks(myLib);
 }
 
 showBooks(myLib);
 
+openModal.onclick = function() {
+  modal.style.display = "block";
+}
 
+
+closeBtn.onclick = function(){
+    modal.style.display = "none"
+}
