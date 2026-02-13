@@ -17,7 +17,24 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="closeBtn">ClOSE</span>
-            <p>DAS IST EIN POPUP</p>
+            <form class="addNew">
+                <label for="title">Title:</label><br>
+                <input type="text" id="title" name="title"><br>
+
+                <label for="author">Author:</label><br>
+                <input type="text" id="author" name="author">
+
+                <label for="pages">Pages:</label>
+                <input type="number" id="pages" name="pages" min="1">
+
+                <label for="vehicle1">Read?</label><br>
+                <input type="checkbox" id="read" name="read" value="read">
+
+                <label for="info">Info:</label><br>
+                <input type="text" id="info" name="info"><br>
+
+                <input type="submit" value="Submit">
+            </form>
         </div>
     </div>
 

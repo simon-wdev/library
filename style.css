@@ -61,3 +61,8 @@
   cursor: pointer;
 }
 
+.addNew{
+    display: flex;
+    flex-direction: column;
+    width: 100px
+}
