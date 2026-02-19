@@ -16,6 +16,7 @@ function Book (id, title, author, pages, read, about){
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.read = read;
     this.about = about;
     this.info = function (){
         return this.about;
@@ -46,13 +47,13 @@ function showBooks(myLib){
                         <p>Seitenzahl: ${book.pages}</p>
                         <label>
                             Gelesen:
-                                <input type="checkbox" class="checkRead">
+                                <input type="checkbox" class="checkRead" ${book.read ? 'checked' : ""}>
                         </label>
                         <p>Inhalt: ${book.about}</p>
                         <button class="remove-btn" data-id="${book.id}">Löschen</button>`; //data.id wird in javascript direkt in dataset gespeichert
 
         const checkRead = card.querySelector(".checkRead")
-        checkRead.addEventListener("click", (e) => {
+        checkRead.addEventListener("click", () => {
             book.toggleRead();
         });
 
@@ -84,7 +85,7 @@ closeBtn.onclick = function(){
 }
 
 submit.addEventListener("click", (e) => {
-        e.preventDefault(); //sonst wir die page komplett neu geladen, funktioniert nicht
+        e.preventDefault(); //sonst wird die page komplett neu geladen, funktioniert nicht
         let title = document.querySelector('[name="title"]').value;
         let author = document.querySelector('[name="author"]').value;
         let pages = document.querySelector('[name="pages"]').value;
