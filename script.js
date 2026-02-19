@@ -16,7 +16,6 @@ function Book (id, title, author, pages, read, about){
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
     this.about = about;
     this.info = function (){
         return this.about;
@@ -36,7 +35,7 @@ addToLib("ZWEI", "Strugatzki", 255, false, "Stalker doing Stalker things.");
 addToLib("DREI", "Strugatzki", 255, false, "Stalker doing Stalker things.");
 
 function showBooks(myLib){
-    bookWrapper.innerHTML = "";//um doppelte Einträge direkt zu vermeiden
+    bookWrapper.innerHTML = "";//sehr ineffizient wenn user viele Bücher hat
 
     myLib.forEach(book => {
         const card = document.createElement("div"); //erstellt das div in der die Buchkarte angezeigt wird
@@ -45,9 +44,18 @@ function showBooks(myLib){
                         `<h3>${book.title}</h3>
                         <p>Autor: ${book.author}</p>
                         <p>Seitenzahl: ${book.pages}</p>
-                        <p>Gelesen: ${book.read}</p>
+                        <label>
+                            Gelesen:
+                                <input type="checkbox" class="checkRead">
+                        </label>
                         <p>Inhalt: ${book.about}</p>
                         <button class="remove-btn" data-id="${book.id}">Löschen</button>`; //data.id wird in javascript direkt in dataset gespeichert
+
+        const checkRead = card.querySelector(".checkRead")
+        checkRead.addEventListener("click", (e) => {
+            book.toggleRead();
+        });
+
 
         const removeBtn = card.querySelector(".remove-btn")
         removeBtn.addEventListener("click", (e) => {
@@ -76,7 +84,7 @@ closeBtn.onclick = function(){
 }
 
 submit.addEventListener("click", (e) => {
-        e.preventDefault();
+        e.preventDefault(); //sonst wir die page komplett neu geladen, funktioniert nicht
         let title = document.querySelector('[name="title"]').value;
         let author = document.querySelector('[name="author"]').value;
         let pages = document.querySelector('[name="pages"]').value;
@@ -90,4 +98,8 @@ submit.addEventListener("click", (e) => {
         modal.style.display = "none";
     })
 
+
+Book.prototype.toggleRead = function(){
+    this.read = !this.read;
+};
 

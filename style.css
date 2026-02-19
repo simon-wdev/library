@@ -26,6 +26,8 @@
     margin-top: 50px;
 }
 
+/*Modal Vorlage ist von w3schools*/
+
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -34,7 +36,7 @@
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  overflow: auto; 
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
