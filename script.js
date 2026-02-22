@@ -42,14 +42,16 @@ function showBooks(myLib){
         const card = document.createElement("div"); //erstellt das div in der die Buchkarte angezeigt wird
         
         card.innerHTML = 
-                        `<h3>${book.title}</h3>
-                        <p>Autor: ${book.author}</p>
-                        <p>Seitenzahl: ${book.pages}</p>
-                        <label>
-                            Gelesen:
-                                <input type="checkbox" class="checkRead" ${book.read ? 'checked' : ""}>
-                        </label>
-                        <p>Inhalt: ${book.about}</p>
+                        `<h3 class="bookTitle">${book.title}</h3>
+                        <div class="bookDetails">
+                            <p><span>Autor:</span> ${book.author}</p>
+                            <p><span>Seitenzahl:</span> ${book.pages}</p>
+                            <label>
+                                <span>Gelesen:</span>
+                                    <input type="checkbox" class="checkRead" ${book.read ? 'checked' : ""}>
+                            </label>
+                        </div>
+                        <p class="bookAbout"><span>Inhalt</span>: ${book.about}</p>
                         <button class="remove-btn" data-id="${book.id}">Löschen</button>`; //data.id wird in javascript direkt in dataset gespeichert
 
         const checkRead = card.querySelector(".checkRead")
