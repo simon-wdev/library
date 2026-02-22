@@ -59,7 +59,6 @@ body{
 
 .card:hover{
   transform: translateY(-0.8rem);
-  box-shadow: ;
 }
 
 .bookTitle{

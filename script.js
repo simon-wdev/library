@@ -30,10 +30,7 @@ function addToLib(title, author, pages, read, about){
     showBooks(myLib);
 }
 
-addToLib("EINS", "Strugatzki", 255, false, "Stalker doing Stalker things.");
 addToLib("Roadside Picnic", "Strugatzki", 255, false, "Stalker doing Stalker things.");
-addToLib("ZWEI", "Strugatzki", 255, false, "Stalker doing Stalker things.");
-addToLib("DREI", "Strugatzki", 255, false, "Stalker doing Stalker things.");
 
 function showBooks(myLib){
     bookWrapper.innerHTML = "";//sehr ineffizient wenn user viele Bücher hat
