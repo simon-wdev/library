@@ -41,15 +41,15 @@ function showBooks(myLib){
         card.innerHTML = 
                         `<h3 class="bookTitle">${book.title}</h3>
                         <div class="bookDetails">
-                            <p><span>Autor:</span> ${book.author}</p>
-                            <p><span>Seitenzahl:</span> ${book.pages}</p>
+                            <p><span>Author:</span> ${book.author}</p>
+                            <p><span>Pages:</span> ${book.pages}</p>
                             <label>
-                                <span>Gelesen:</span>
+                                <span>Read?</span>
                                     <input type="checkbox" class="checkRead" ${book.read ? 'checked' : ""}>
                             </label>
                         </div>
-                        <p class="bookAbout"><span>Inhalt</span>: ${book.about}</p>
-                        <button class="remove-btn" data-id="${book.id}">Löschen</button>`; //data.id wird in javascript direkt in dataset gespeichert
+                        <p class="bookAbout"><span>About</span>: ${book.about}</p>
+                        <button class="remove-btn" data-id="${book.id}">Remove</button>`; //data.id wird in javascript direkt in dataset gespeichert
 
         const checkRead = card.querySelector(".checkRead")
         checkRead.addEventListener("click", () => {
