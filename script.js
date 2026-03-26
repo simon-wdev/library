@@ -8,6 +8,19 @@ const closeBtn = document.querySelector(".closeBtn");
 
 const submit = document.getElementById("submit")
 
+
+class Book{
+    constructor(id, title, author, pages, read, about){
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.about = about;
+    }
+}
+
+/*
 function Book (id, title, author, pages, read, about){
     if (!new.target){
         throw Error("'new' Operator must be used."); //won´t work without using 'new'
@@ -22,6 +35,7 @@ function Book (id, title, author, pages, read, about){
         return this.about;
     };
     };
+*/
 
 function addToLib(title, author, pages, read, about){
     let id = crypto.randomUUID(); //Unique identifier for every book
