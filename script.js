@@ -9,7 +9,7 @@ class Book{
         this.about = about;
     }
 
-    toogleRead(){
+    toggleRead(){
         this.read = !this.read;
     }
 };
@@ -76,23 +76,21 @@ const modal = document.getElementById("myModal");
 const closeBtn = document.querySelector(".closeBtn");
 const submit = document.getElementById("submit")
 
+
 class Display{
 
-        static open(){
+        static events(myLib){
+
             openModal.addEventListener("click", function(e){
                 e.preventDefault();
                 modal.style.display = "block";
-            })
-        }
+            });
 
-        static close(){
             closeBtn.addEventListener("click", function(e){
                 e.preventDefault();
-                modal.style.display = "none"
-            })
-        }
+                modal.style.display = "none";
+            });
 
-        static submit(){
             submit.addEventListener("click", (e) => {
                     e.preventDefault(); //sonst wird die page komplett neu geladen, funktioniert nicht
                     let title = document.querySelector('[name="title"]').value;
@@ -107,14 +105,14 @@ class Display{
                     form.reset();
                     modal.style.display = "none";
                 });
-        };   
+             };
 };
 
-Display.open();
-Display.close();
-Display.submit();
+
+
 
 const library = new Library();
+Display.events(library);
 library.addToLib("Roadside Picnic", "Strugatzki", 255, false, "Stalker doing Stalker things.");
 
 
